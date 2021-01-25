@@ -1,0 +1,34 @@
+{
+  "name": "jsoo-node",
+  "version": "1.0.0",
+  "description": "Bindings for NodeJS",
+  "directories": { "example": "example", "lib": "lib" },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "ocamlformat lib/*.mli --inplace",
+    "format:check": "ocamlformat lib/*.mli --check",
+    "compile": "esy x dune build .",
+    "example":
+      "esy x dune build . && rm -f example/example.bc.js && cp _build/default/bin/example.bc.js example/ && node example/example.bc.js"
+  },
+  "author": "CareClever",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@opam/dune": ">=2.7",
+    "@opam/gen_js_api": "*",
+    "@opam/js_of_ocaml": "*",
+    "@opam/js_of_ocaml-compiler": "*",
+    "@opam/js_of_ocaml-ppx": "*",
+    "@opam/ocaml-lsp-server": "1.2.0",
+    "@opam/ocamlformat": "0.15.0",
+    "@opam/odoc": "1.5.2",
+    "husky": "^5.0.6",
+    "ocaml": "~4.09"
+  },
+  "esy": { "build": [ "dune build ./bin/example.bc.js" ] },
+  "husky" : {
+    "hooks" : {
+      "pre-commit":"npm run format && git add ."
+    }
+  }
+}

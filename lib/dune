@@ -1,0 +1,30 @@
+(library
+ (name NodeJS)
+ (modes byte)
+ (public_name jsoo-node.lib)
+ (libraries  js_of_ocaml js_of_ocaml-ppx gen_js_api)
+ (preprocess
+  (pps js_of_ocaml-ppx gen_js_api.ppx))
+ (js_of_ocaml
+  (javascript_files nodejs_stub.js))
+)
+
+(rule
+ (targets console.ml)
+ (deps console.mli)
+ (action (run %{bin:gen_js_api} %{deps})))
+
+(rule
+ (targets buffer.ml)
+ (deps buffer.mli)
+ (action (run %{bin:gen_js_api} %{deps})))
+
+ (rule
+ (targets error.ml)
+ (deps error.mli)
+ (action (run %{bin:gen_js_api} %{deps})))
+
+  (rule
+ (targets http.ml)
+ (deps http.mli)
+ (action (run %{bin:gen_js_api} %{deps})))

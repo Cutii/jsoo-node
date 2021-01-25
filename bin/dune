@@ -1,0 +1,6 @@
+(executable
+ (name example)
+ (modes js)
+ (preprocess
+  (pps gen_js_api.ppx))
+ (libraries js_of_ocaml jsoo-node.lib gen_js_api))
