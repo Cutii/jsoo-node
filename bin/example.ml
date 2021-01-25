@@ -21,3 +21,5 @@ let x = Buffer.isBuffer buf |> Console.log_bool
 let http_server = Http.Server.make ()
 
 (* let listen = Http.Server.listen http_server *)
+
+let socket = Net.Socket.make ()

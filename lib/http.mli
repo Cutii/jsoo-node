@@ -12,18 +12,29 @@
 **   See the License for the specific language governing permissions and
 **   limitations under the License. *)
 
-
 type t = private Ojs.t
-val t_to_js : t -> Ojs.t
-val t_of_js : Ojs.t -> t
 
+val t_to_js : t -> Ojs.t
+
+val t_of_js : Ojs.t -> t
 
 (*TODO : fill with others methods and params*)
 module Server : sig
   type t = private Ojs.t
+
   val t_to_js : t -> Ojs.t
+
   val t_of_js : Ojs.t -> t
 
   val make : unit -> t [@@js.new "http.Server"]
+
   val listen : t -> unit [@@js.call]
+end
+
+module IncomingMessage : sig
+  type t = private Ojs.t
+
+  val t_to_js : t -> Ojs.t
+
+  val t_of_js : Ojs.t -> t
 end

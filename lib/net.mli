@@ -18,12 +18,14 @@ val t_to_js : t -> Ojs.t
 
 val t_of_js : Ojs.t -> t
 
-val make : unit -> t [@@js.new "Error"]
+module Socket : sig
+  type t = private Ojs.t
 
-val make_with_message : string -> t [@@js.new "Error"]
+  val t_to_js : t -> Ojs.t
 
-val code : t -> string [@@js.get]
+  val t_of_js : Ojs.t -> t
 
-val message : t -> string [@@js.get]
+  val make : unit -> t [@@js.new "net.Socket"]
 
-val stack : t -> string [@@js.get]
+  (* TODO : constructor with options*)
+end

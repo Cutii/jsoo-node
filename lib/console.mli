@@ -13,7 +13,11 @@
 **   limitations under the License. *)
 
 val log : string -> unit [@@js.global "console.log"]
+
 val log_2 : string -> string -> unit [@@js.global "console.log"]
+
 val log_buffer : Buffer.t -> unit [@@js.global "console.log"]
+
 val log_bool : bool -> unit [@@js.global "console.log"]
+
 val log_int : int -> unit [@@js.global "console.log"]

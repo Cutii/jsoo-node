@@ -19,12 +19,17 @@
  (deps buffer.mli)
  (action (run %{bin:gen_js_api} %{deps})))
 
- (rule
+(rule
  (targets error.ml)
  (deps error.mli)
  (action (run %{bin:gen_js_api} %{deps})))
 
-  (rule
+(rule
  (targets http.ml)
  (deps http.mli)
+ (action (run %{bin:gen_js_api} %{deps})))
+
+(rule
+ (targets net.ml)
+ (deps net.mli)
  (action (run %{bin:gen_js_api} %{deps})))
