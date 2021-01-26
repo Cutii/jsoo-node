@@ -8,8 +8,8 @@
     "format": "ocamlformat lib/*.mli --inplace",
     "format:check": "ocamlformat lib/*.mli --check",
     "compile": "esy x dune build .",
-    "example":
-      "esy x dune build . && rm -f example/example.bc.js && cp _build/default/bin/example.bc.js example/ && node example/example.bc.js"
+    "example": "esy x dune build . && rm -f example/example.bc.js && cp _build/default/bin/example.bc.js example/ && node example/example.bc.js",
+    "doc": "esy x dune build @doc && cp -Rf _build/default/_doc/_html/ doc/"
   },
   "author": "CareClever",
   "license": "Apache-2.0",
